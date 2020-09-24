@@ -1,0 +1,19 @@
+name: main
+
+on:
+  push:
+
+jobs:
+  spec:
+    runs-on: ubuntu-latest
+    container: python:3.8
+    steps:
+    - uses: actions/checkout@v2
+    - name: Install dependencies
+      run: |
+        pip install pipenv
+        pipenv install --dev
+    - name: Spec
+      run: pipenv run spec
+    - name: Lint
+      run: pipenv run format-check
