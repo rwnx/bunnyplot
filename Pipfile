@@ -6,9 +6,17 @@ verify_ssl = true
 [dev-packages]
 mamba = "*"
 expects = "*"
+black = "*"
 
 [packages]
 bunnyplot = {editable = true, path = "."}
 
 [requires]
 python_version = "3.8"
+
+[scripts]
+format = "black bunnyplot"
+format-check = "black bunnyplot --check"
+
+[pipenv]
+allow_prereleases = true
