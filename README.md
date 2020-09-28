@@ -3,7 +3,13 @@ A utility for producting GraphML graphs and other visualizations of RabbitMQ
 
 ## Usage
 ```
+% bunnyplot --help
+Usage: bunnyplot [OPTIONS] URL OUTPUT_PATH
 
+Options:
+  -u, --username TEXT
+  -p, --password TEXT
+  --help               Show this message and exit.
 ```
 ## Development
 
