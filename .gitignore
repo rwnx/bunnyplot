@@ -131,3 +131,5 @@ dmypy.json
 
 # remove outputted graphml files
 *.graphml
+
+.DS_Store
