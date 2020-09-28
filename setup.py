@@ -5,7 +5,7 @@ with open("README.md", "r") as fh:
 
 setuptools.setup(
     name="bunnyplot",
-    version="0.0.1",
+    version="0.1.0",
     author="Jerome Twell",
     author_email="jtwell1@gmail.com",
     description="A utility for producting GraphML from RabbitMQ",
@@ -20,7 +20,6 @@ setuptools.setup(
     ],
     install_requires=[
         "click",
-        "python-dotenv",
         "networkx",
         "aiohttp",
         "async_timeout"
