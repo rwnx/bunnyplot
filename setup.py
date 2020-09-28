@@ -21,7 +21,12 @@ setuptools.setup(
     install_requires=[
         "click",
         "python-dotenv",
-        "networkx"
+        "networkx",
+        "aiohttp",
+        "async_timeout"
     ],
+    entry_points = {
+        'console_scripts': ['bunnyplot=bunnyplot.cli:cli'],
+    },
     python_requires='>=3.6',
 )
