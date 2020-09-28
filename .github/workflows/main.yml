@@ -4,7 +4,7 @@ on:
   push:
 
 jobs:
-  test-py36:
+  test:
     runs-on: ubuntu-latest
     container: python:3.8
     steps:
@@ -12,7 +12,7 @@ jobs:
     - name: Install dependencies
       run: |
         pip install pipenv
-        pip install --dev
+        pipenv install --dev
     - name: Spec
       run: pipenv run spec
     - name: Lint
