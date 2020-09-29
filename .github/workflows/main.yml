@@ -4,7 +4,7 @@ on:
   push:
 
 jobs:
-  test:
+  spec:
     runs-on: ubuntu-latest
     container: python:3.8
     steps:
@@ -17,3 +17,17 @@ jobs:
       run: pipenv run spec
     - name: Lint
       run: pipenv run format-check
+  integration-test:
+    runs-on: ubuntu-latest
+    steps: 
+      - uses: actions/checkout@v2
+      - name: Start services
+        run: docker-compose up -d
+    - name: Install dependencies
+      run: |
+        pip install pipenv
+        pipenv install --dev
+      - name: Integration Test
+        run: pipenv run integration_test
+      - name: Stop services
+        run: docker-compose down
