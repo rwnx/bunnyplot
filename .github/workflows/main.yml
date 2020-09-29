@@ -19,10 +19,11 @@ jobs:
       run: pipenv run format-check
   integration-test:
     runs-on: ubuntu-latest
+    container: python:3.8
     steps: 
       - uses: actions/checkout@v2
       - name: Start services
-        run: docker-compose up -d
+        run: docker-compose -f integration_tests/docker-compose.yml up -d
       - name: Install dependencies
         run: |
           pip install pipenv
@@ -30,4 +31,4 @@ jobs:
       - name: Integration Test
         run: pipenv run integration_test
       - name: Stop services
-        run: docker-compose down
+        run: docker-compose -f integration_tests/docker-compose.yml down
