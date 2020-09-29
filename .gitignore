@@ -133,3 +133,5 @@ dmypy.json
 *.graphml
 
 .DS_Store
+
+.vscode
