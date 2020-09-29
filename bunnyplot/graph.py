@@ -9,6 +9,7 @@ def build_rabbitmq_graph(consumers, definitions):
     graph = nx.DiGraph(name=f"RabbitMQ graph")
     for q in queues:
         graph.add_node(q["name"])
+        graph.nodes[q["name"]]["label"] = q["name"]
 
     for x in exchanges:
         graph.add_node(x["name"])
