@@ -1,7 +1,12 @@
 import networkx as nx
 
+def info(graph):
+    return nx.info(graph)
 
-def build_rabbitmq_graph(consumers, definitions):
+def write_graphml(graph, path):
+    return nx.write_graphml(graph, path)
+
+def build_graph(consumers, definitions):
     queues = definitions["queues"]
     exchanges = definitions["exchanges"]
     bindings = definitions["bindings"]
@@ -9,7 +14,7 @@ def build_rabbitmq_graph(consumers, definitions):
     graph = nx.DiGraph(name=f"RabbitMQ graph")
     for q in queues:
         graph.add_node(q["name"])
-        graph.nodes[q["name"]]["label"] = q["name"]
+        graph.nodes[q["name"]]["Text"] = q["name"]
 
     for x in exchanges:
         graph.add_node(x["name"])

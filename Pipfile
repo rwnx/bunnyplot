@@ -7,6 +7,8 @@ verify_ssl = true
 mamba = "*"
 expects = "*"
 black = "*"
+pylint = "*"
+rope = "*"
 
 [packages]
 bunnyplot = {editable = true, path = "."}
@@ -18,7 +20,6 @@ python_version = "3.8"
 format = "black bunnyplot"
 format-check = "black bunnyplot --check"
 spec = "mamba --format=documentation"
-integration_test = "echo \"hello world\""
 
 [pipenv]
 allow_prereleases = true

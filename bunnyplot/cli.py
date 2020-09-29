@@ -3,7 +3,7 @@ import click
 import logging
 
 import bunnyplot.log
-from bunnyplot.graph import build_rabbitmq_graph
+from bunnyplot.graph import build_graph, write_graphml, info
 from bunnyplot.rabbitmq import RabbitMQApi
 
 logger = logging.getLogger("bunnyplot")
@@ -27,12 +27,12 @@ def cli(url, output_path, username, password):
             api.get_consumers(), api.get_definitions()
         )
 
-        graph = build_rabbitmq_graph(consumers, definitions)
+        graph = build_graph(consumers, definitions)
 
-        logger.info(nx.info(graph))
+        logger.info(info(graph))
 
         logger.info("writing to %s", output_path)
-        nx.write_graphml(graph, output_path)
+        write_graphml(graph, output_path)
 
     asyncio.run(main())
 
