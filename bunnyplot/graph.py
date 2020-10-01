@@ -1,10 +1,13 @@
 import networkx as nx
 
+
 def info(graph):
     return nx.info(graph)
 
+
 def write_graphml(graph, path):
     return nx.write_graphml(graph, path)
+
 
 def build_graph(consumers, definitions):
     queues = definitions["queues"]
@@ -13,17 +16,28 @@ def build_graph(consumers, definitions):
 
     graph = nx.DiGraph(name=f"RabbitMQ graph")
     for q in queues:
-        graph.add_node(q["name"])
-        graph.nodes[q["name"]]["Text"] = q["name"]
+        id = q["name"]
+        graph.add_node(id)
+        graph.nodes[id]["name"] = id
+        graph.nodes[id]["type"] = "queue"
 
     for x in exchanges:
-        graph.add_node(x["name"])
+        id = x["name"]
+        graph.add_node(id)
+        graph.nodes[id]["name"] = id
+        graph.nodes[id]["type"] = "exchange"
 
     for qx in bindings:
-        graph.add_edge(qx["source"], qx["destination"])
+        source_id = qx["source"]
+        destination_id = qx["destination"]
+        graph.add_edge(source_id, destination_id)
 
     for c in consumers:
-        graph.add_node(c["channel_details"]["user"])
-        graph.add_edge(c["queue"]["name"], c["channel_details"]["user"])
+        id = c["channel_details"]["user"]
+        q_id = c["queue"]["name"]
+        graph.add_node(id)
+        graph.nodes[id]["name"] = id
+        graph.nodes[id]["type"] = "consumer"
+        graph.add_edge(q_id, id)
 
     return graph

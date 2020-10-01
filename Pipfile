@@ -20,6 +20,7 @@ python_version = "3.8"
 format = "black bunnyplot"
 format-check = "black bunnyplot --check"
 spec = "mamba --format=documentation"
+itests = "mamba integration_tests"
 
 [pipenv]
 allow_prereleases = true
