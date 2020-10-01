@@ -14,5 +14,5 @@ with description("Integration tests") as self:
         nodes = root.findall(".//g:node", ns)
         edges = root.findall(".//g:edge", ns)
 
-        expect(nodes).to(have_len(2))
-        expect(edges).to(have_len(1))
+        expect(nodes).to(have_len(13))
+        expect(edges).to(have_len(11))
