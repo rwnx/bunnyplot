@@ -1,4 +1,4 @@
-# bunnyplot ![pypi version](https://img.shields.io/pypi/v/bunnyplot)
+# bunnyplot [![pypi version](https://img.shields.io/pypi/v/bunnyplot)](https://pypi.org/project/bunnyplot)
 A utility for producting GraphML graphs and other visualizations of RabbitMQ
 
 ![A rabbitMQ graph](bunnyplot.png)
