@@ -6,12 +6,12 @@ with open("README.md", "r") as fh:
 setuptools.setup(
     name="bunnyplot",
     version="0.1.0",
-    author="Jerome Twell",
-    author_email="jtwell1@gmail.com",
+    author="Rowan Twell",
+    author_email="rxntwe@gmail.com",
     description="A utility for producting GraphML from RabbitMQ",
     long_description=long_description,
     long_description_content_type="text/markdown",
-    url="https://github.com/jerometwell/bunnyplot",
+    url="https://github.com/rwnx/bunnyplot",
     packages=setuptools.find_packages(),
     classifiers=[
         "Programming Language :: Python :: 3",
